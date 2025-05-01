@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 4/30/2025
+  Time: 3:18 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+    <title>Résultat</title>
+</head>
+<body>
+<h2>Les 5 nombres suivant #{bean.nombre} sont :</h2>
+
+<ul>
+    <ui:repeat value="#{bean.suivants}" var="n">
+        <li>#{n+1}</li>
+    </ui:repeat>
+</ul>
+
+<h:form>
+    <h:commandButton value="Retour au formulaire" action="affichage1?faces-redirect=true" />
+</h:form>
+</body>
+
+</html>

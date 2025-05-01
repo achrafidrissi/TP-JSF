@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: user
+  Date: 4/30/2025
+  Time: 7:18 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+    <title>Formulaire d'Enregistrement</title>
+</head>
+<body>
+<h2>Formulaire d'Enregistrement</h2>
+
+<!-- Formulaire d'enregistrement -->
+<h:form>
+    <h:outputLabel for="prenom" value="Prénom:" />
+    <h:inputText id="prenom" value="#{userBean.prenom}" required="true" requiredMessage="Le prénom est obligatoire" />
+    <h:message for="prenom" style="color:red" />
+
+    <h:outputLabel for="nom" value="Nom:" />
+    <h:inputText id="nom" value="#{userBean.nom}" required="true" requiredMessage="Le nom est obligatoire" />
+    <h:message for="nom" style="color:red" />
+
+    <h:outputLabel for="genre" value="Genre:" />
+    <h:selectOneRadio id="genre" value="#{userBean.genre}">
+        <f:selectItem itemValue="Homme" itemLabel="Homme" />
+        <f:selectItem itemValue="Femme" itemLabel="Femme" />
+    </h:selectOneRadio>
+
+    <h:outputLabel for="dateNaissance" value="Date de naissance:" />
+    <h:inputText id="dateNaissance" value="#{userBean.dateNaissance}" required="true">
+        <f:convertDateTime pattern="dd/MM/yyyy" />
+    </h:inputText>
+    <h:message for="dateNaissance" style="color:red" />
+
+    <h:outputLabel for="email" value="Email:" />
+    <h:inputText id="email" value="#{userBean.email}" required="true" validator="#{userBean.validateEmail}" requiredMessage="L'email est obligatoire" />
+    <h:message for="email" style="color:red" />
+
+    <h:commandButton value="Soumettre" action="confirmation" />
+</h:form>
+</body>
+
+</html>
